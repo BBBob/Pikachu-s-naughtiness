@@ -1,1 +1,2 @@
-# Pikachu-s-naughtiness
+# code library for Pikachu's naughtiness
+

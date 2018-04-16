@@ -1,32 +1,23 @@
-# Prerequisites
-*.d
+*
+!*.cpp
+!*.c
+!*.java
+!*.md
+!*/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
 
-# Precompiled Headers
-*.gch
-*.pch
+!*/*.cpp
+!*/*.c
+!*/*.java
+!*/*.md
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+!*/*/*.cpp
+!*/*/*.c
+!*/*/*.java
+!*/*/*.md
 
-# Fortran module files
-*.mod
-*.smod
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+!*/*/*/*.cpp
+!*/*/*/*.c
+!*/*/*/*.java
+!*/*/*/*.md
