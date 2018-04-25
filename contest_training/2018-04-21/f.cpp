@@ -3,16 +3,16 @@
 using namespace std;
 const int Nmax=1e5+7;
 typedef long long ll;
-int n,r; 
+int n,r;
 
 int V[Nmax];
 struct Edge
 {
     int x,y;
     int next;
-    Edge(){ }
-    Edge(int x,int y,int next):x(x),y(y),next(next){ }
-}e[Nmax];
+    Edge() { }
+    Edge(int x,int y,int next):x(x),y(y),next(next) { }
+} e[Nmax];
 int size;
 inline void add(int x,int y)
 {
@@ -26,50 +26,57 @@ inline void init()
 }
 int dfs(int now,int fa,int is)
 {
-    for(int i=V[now];~i;i=e[i].next)   
+    for(int i=V[now]; ~i; i=e[i].next)
     {
         int y=e[i].y;
+
         if(y==fa)
             continue;
-        if(!is)    
+
+        if(!is)
         {
             if(dfs(y,now,is^1))
                 return 1;
         }
-        else 
+        else
         {
             if(!dfs(y,now,is^1))
                 return 0;
         }
     }
-    if(!is) 
+
+    if(!is)
         return 0;
     else
         return 1;
 }
 int main()
 {
-    #ifdef test
-    #endif
+#ifdef test
+#endif
     //freopen("1.in","r",stdin);
     int t;
     scanf("%d",&t);
+
     while(t--)
     {
         init();
         scanf("%d%d",&n,&r);
-        for(int i=1;i<n;i++)
+
+        for(int i=1; i<n; i++)
         {
             int x,y;
             scanf("%d%d",&x,&y);
             add(x,y);
             add(y,x);
         }
+
         if(dfs(r,0,0))
             printf("Gen\n");
         else
             printf("Dui\n");
     }
+
     return 0;
 }
 
