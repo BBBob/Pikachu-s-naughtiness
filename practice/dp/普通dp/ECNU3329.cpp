@@ -1,4 +1,10 @@
 //#define test
+/*
+ *题目是HackerRank的 prime xor
+ *然而HackerRank上没有题目编号
+ *所以又在ECNU上交了,并重新给文件命名
+ *
+ */
 #include<bits/stdc++.h>
 using namespace std;
 const int Nmax=1e6+7;
@@ -39,12 +45,13 @@ int main()
 {
 #ifdef test
 #endif
-    int t;
-    scanf("%d",&t);
+    // HackerRank上有t组数据
+    //int t;
+    //scanf("%d",&t);
     get();
 
-    while(t--)
-    {
+    //while(t--)
+    //{
         scanf("%d",&n);
         memset(num,0,sizeof(num));
         memset(dp,0,sizeof(dp));
@@ -81,7 +88,7 @@ int main()
                 ans=(ans+dp[now^1][i])%mod;
 
         printf("%lld\n",ans);
-    }
+    //}
 
     return 0;
 }

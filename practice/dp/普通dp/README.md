@@ -1,6 +1,8 @@
 # DP
-## Prime XOR
-题目链接: https://www.hackerrank.com/challenges/prime-xor/problem
+## ECNU 3329 奇异收缩的剪影 HacherRank Prime XOR
+题目链接0: https://www.hackerrank.com/challenges/prime-xor/problem
+题目链接1: https://acm.ecnu.edu.cn/problem/3329/
+
 ### 题意
 给一个有 $n$ 个数的集合,问你它的子集中异或和为素数的集合有多少个.
 第一行输入一个整数 $q$，表示测试用例的个数，每个测试用例输入两行，第一行输入一个整数 $n$，代表集合的元素个数，第二行输入 $n$ 个用空格分隔的整数，代表集合的各元素。
