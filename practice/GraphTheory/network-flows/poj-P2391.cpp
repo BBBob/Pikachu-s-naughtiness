@@ -110,57 +110,86 @@ int Maxflow(int s,int t)
 
     return flow;
 }
-void floyd(){
-    for(int k=1;k<=n;k++)
-        for(int i=1;i<=n;i++)
-            for(int j=1;j<=n;j++)
+void floyd()
+{
+    for(int k=1; k<=n; k++)
+        for(int i=1; i<=n; i++)
+            for(int j=1; j<=n; j++)
                 arr[i][j]=min(arr[i][j],arr[i][k]+arr[k][j]);
+
     return ;
 }
-int check(ll t){
+int check(ll t)
+{
     init(2*n+1);
     int s=0;
     int tt=2*n+1;
-    for(int i=1;i<=n;i++)
+
+    for(int i=1; i<=n; i++)
     {
-        addedge(s,i,cow[i]);addedge(i+n,tt,val[i]);addedge(i,i+n,inf);
-        for(int j=i+1;j<=n;j++){
-            if(arr[i][j]<=t){
+        addedge(s,i,cow[i]);
+        addedge(i+n,tt,val[i]);
+        addedge(i,i+n,inf);
+
+        for(int j=i+1; j<=n; j++)
+        {
+            if(arr[i][j]<=t)
+            {
                 addedge(i,j+n,inf);
                 addedge(j,i+n,inf);
             }
         }
     }
-    if(Maxflow(s,tt)>=tot) return 1;
-    else return 0;
+
+    if(Maxflow(s,tt)>=tot)
+        return 1;
+    else
+        return 0;
 }
-void solve(){
+void solve()
+{
     floyd();
     ll l=0,r=1e15-1;
     ll ans=-1;
-    while(l<=r){
+
+    while(l<=r)
+    {
         ll mid=(l+r)/2;
-        if(check(mid)){
+
+        if(check(mid))
+        {
             ans=mid;
             r=mid-1;
         }
-        else l=mid+1;
+        else
+            l=mid+1;
+
         //printf("%lld\n",ans);
     }
+
     printf("%lld\n",ans);
 }
 int main()
 {
     scanf("%d%d",&n,&m);
-    for(int i=1;i<=n;i++) scanf("%d%d",&cow[i],&val[i]),tot+=cow[i];
-    for(int i=1;i<=n;i++)
-        for(int j=1;j<=n;j++) arr[i][j]=1e15;
-    for(int i=1;i<=m;i++){
+
+    for(int i=1; i<=n; i++)
+        scanf("%d%d",&cow[i],&val[i]),tot+=cow[i];
+
+    for(int i=1; i<=n; i++)
+        for(int j=1; j<=n; j++)
+            arr[i][j]=1e15;
+
+    for(int i=1; i<=m; i++)
+    {
         int u,v;
         ll w;
         scanf("%d%d%lld",&u,&v,&w);
-        if(arr[u][v]>w) arr[u][v]=arr[v][u]=w;
+
+        if(arr[u][v]>w)
+            arr[u][v]=arr[v][u]=w;
     }
+
     solve();
     return 0;
 }

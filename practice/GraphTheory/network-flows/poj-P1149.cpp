@@ -113,27 +113,38 @@ int main()
     scanf("%d%d",&m,&n);
     int s=0,t=n+1;
     init(t+1);
-    for(int i=1;i<=m;i++) scanf("%d",&pig[i]);
-    for(int i=1;i<=n;i++){
+
+    for(int i=1; i<=m; i++)
+        scanf("%d",&pig[i]);
+
+    for(int i=1; i<=n; i++)
+    {
         int k;
         scanf("%d",&k);
-        for(int j=0;j<k;j++){
+
+        for(int j=0; j<k; j++)
+        {
             int x;
             scanf("%d",&x);
             vec[x].push_back(i);
         }
+
         scanf("%d",&val[i]);
         addedge(i,t,val[i]);
     }
-    for(int i=1;i<=m;i++){
-        for(int j=0;j<vec[i].size();j++){
-            if(j!=0){
+
+    for(int i=1; i<=m; i++)
+    {
+        for(int j=0; j<vec[i].size(); j++)
+        {
+            if(j!=0)
                 addedge(vec[i][j-1],vec[i][j],inf);
-            }else{
+
+            else
                 addedge(s,vec[i][0],pig[i]);
-            }
         }
     }
+
     printf("%d\n",Maxflow(s,t));
     return 0;
 }
